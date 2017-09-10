@@ -1,4 +1,5 @@
 console.log('js');
+var peopleArray = [];
 
 function onReady() {
     console.log('ready')
@@ -22,6 +23,7 @@ function addPersonClicked() {
             domAppend();
         }
     });
+    console.log('current list of people ->', peopleArray);
 }
 
 function domAppend() {
@@ -30,6 +32,7 @@ function domAppend() {
         url: '/people',
         success: function(res) {
             $('#peopleList').empty();
+            peopleArray.push(res);
             console.log('people resp ->', res);
             for (var i = 0; i < res.length; i++) {
                 $('#peopleList').append('<p>'+ res[i].name + ':' + ' ' + res[i].fact +'</p>');

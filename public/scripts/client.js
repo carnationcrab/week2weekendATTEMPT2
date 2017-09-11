@@ -23,22 +23,43 @@ function addPersonClicked() {
             domAppend();
         }
     });
+    //reset values
+
+    $('#name').val("");
+    $('#fact').val("");
     console.log('current list of people ->', peopleArray);
 }
 
-function domAppend() {
-    $.ajax({
-        type: 'GET',
-        url: '/people',
-        success: function(res) {
-            $('#peopleList').empty();
-            peopleArray.push(res);
-            console.log('people resp ->', res);
-            for (var i = 0; i < res.length; i++) {
-                $('#peopleList').append('<p>'+ res[i].name + ':' + ' ' + res[i].fact +'</p>');
-            }
-        }
-    });
-}
+ function domAppend() {
+     $.ajax({
+         type: 'GET',
+         url: '/people',
+         success: function(res) {
+             $('#peopleList').empty();
+             peopleArray.push(res);
+             console.log('people resp ->', res);
+             for (var i = 0; i < res.length; i++) {
+                 $('#peopleList').append('<p>'+ res[i].name + ':' + ' ' + res[i].fact +'</p>');
+             }
+         }
+     });
+ }
 
+// function domAppendCarousel() {
+//     $.ajax({
+//         type: 'GET',
+//         url: '/people',
+//         success: function(res) {
+//             $('#peopleList').empty();
+//             peopleArray.push(res);
+//             console.log('people resp ->', res);
+//             $('#peopleList').append(peopleArray[1]);
+//         }
+//     });
+// }
+
+// function next() {
+//     $('#peopleList').empty();
+//     $('#peopleList').append(peopleArray[i + 1])
+// }
 $(document).ready(onReady);

@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
     res.sendFile(indexPath);
 });
 
-app.use('/people', peopleRouter);
+app.use('/person', peopleRouter);
 
 app.listen(port, function() {
     console.log('listening on ' + port);

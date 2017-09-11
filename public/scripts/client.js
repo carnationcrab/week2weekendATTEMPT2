@@ -16,7 +16,7 @@ function addPersonClicked() {
 
     $.ajax({
          type: 'POST',
-         url: '/people',
+         url: '/person',
          data: onePerson,
          success: function (res) {
             console.log(res);
@@ -33,7 +33,7 @@ function addPersonClicked() {
  function domAppend() {
      $.ajax({
          type: 'GET',
-         url: '/people',
+         url: '/person',
          success: function(res) {
              $('#peopleList').empty();
              peopleArray.push(res);
@@ -48,7 +48,7 @@ function addPersonClicked() {
 // function domAppendCarousel() {
 //     $.ajax({
 //         type: 'GET',
-//         url: '/people',
+//         url: '/person',
 //         success: function(res) {
 //             $('#peopleList').empty();
 //             peopleArray.push(res);
